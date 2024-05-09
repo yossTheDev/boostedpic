@@ -5,7 +5,7 @@ import Image from "next/image"
 import { sendGAEvent } from "@next/third-parties/google"
 import { filesize } from "filesize"
 import { blobToURL, fromURL } from "image-resize-compress"
-import { Box } from "lucide-react"
+import { ArrowDown, ArrowUp, Box, DownloadCloud } from "lucide-react"
 import { toast } from "sonner"
 
 import {
@@ -167,8 +167,12 @@ export const Editor = () => {
                 alt="Selected image"
               />
 
-              <div className="mt-4 flex items-center justify-center gap-2 text-sm">
-                <Box size={18}></Box>
+              <div className="mt-4 flex items-center justify-center gap-1 text-sm">
+                {resultSize! < imageSize! ? (
+                  <ArrowDown className="text-green-400"></ArrowDown>
+                ) : (
+                  <ArrowUp className="text-red-400"></ArrowUp>
+                )}
                 <p
                   className={`${
                     resultSize! < imageSize! ? "text-green-400" : "text-red-400"
@@ -196,7 +200,7 @@ export const Editor = () => {
           onClick={optimize}
           disabled={!imageData}
         >
-          <Icons.SolarGalleryRemoveLineDuotone className="mr-2 size-5"></Icons.SolarGalleryRemoveLineDuotone>
+          <Box className="mr-2 size-5"></Box>
           Process
         </Button>
 
@@ -206,7 +210,7 @@ export const Editor = () => {
           className="font-bold"
           onClick={handleDownload}
         >
-          <Icons.SolarDownloadMinimalisticBoldDuotone className="mr-2 size-5"></Icons.SolarDownloadMinimalisticBoldDuotone>
+          <DownloadCloud className="mr-2 size-5"></DownloadCloud>
           Download
         </Button>
       </div>
