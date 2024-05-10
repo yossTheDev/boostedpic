@@ -31,7 +31,7 @@ export const MenuWithButton: React.FC<MainButtonProps> = ({ items }) => {
     <>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button className="rounded bg-neutral-900 p-1">
+          <button className="rounded bg-neutral-900 p-1 md:hidden">
             <Menu className="size-5"></Menu>
           </button>
         </DropdownMenuTrigger>
