@@ -135,6 +135,7 @@ export const Editor = () => {
               "image/png": [".png"],
               "image/jpg": [".jpg", ".jpeg"],
               "image/webp": [".webp"],
+              "image/bmp": [".bmp"],
             },
           }}
           onValueChange={handleDataChange}
@@ -175,7 +176,7 @@ export const Editor = () => {
               </div>
             </div>
           ) : (
-            <div className="flex h-80 w-[36rem] max-w-80 items-center justify-center rounded-xl bg-neutral-200  dark:bg-neutral-900">
+            <div className="flex h-64 w-[36rem] max-w-80 items-center justify-center rounded-xl bg-neutral-200 dark:bg-neutral-900  md:h-80">
               <Icons.SolarGalleryBoldDuotone className="size-16 text-neutral-500"></Icons.SolarGalleryBoldDuotone>
             </div>
           )}
@@ -187,7 +188,7 @@ export const Editor = () => {
               <Image
                 width={300}
                 height={150}
-                className="flex max-h-80 max-w-80  rounded-xl"
+                className="flex max-h-80 max-w-80 rounded-xl"
                 src={resultData}
                 alt="Selected image"
               />
@@ -208,7 +209,7 @@ export const Editor = () => {
               </div>
             </div>
           ) : (
-            <div className="flex size-full max-w-80 items-center justify-center rounded-xl bg-neutral-200 dark:bg-neutral-900">
+            <div className="flex h-64 w-[36rem] max-w-80 items-center justify-center rounded-xl bg-neutral-200 dark:bg-neutral-900 md:h-80">
               <div className="grid-pattern flex size-full items-center justify-center">
                 <Icons.SolarGalleryBoldDuotone className="size-16 text-neutral-500"></Icons.SolarGalleryBoldDuotone>
               </div>

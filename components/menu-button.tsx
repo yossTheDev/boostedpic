@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import Link from "next/link"
 import { Menu } from "lucide-react"
 
@@ -21,12 +20,6 @@ interface MainButtonProps {
 }
 
 export const MenuWithButton: React.FC<MainButtonProps> = ({ items }) => {
-  const [isOpen, setIsOpen] = useState(false)
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen)
-  }
-
   return (
     <>
       <DropdownMenu>
