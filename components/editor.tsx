@@ -5,7 +5,7 @@ import Image from "next/image"
 import { sendGAEvent } from "@next/third-parties/google"
 import { filesize } from "filesize"
 import { blobToURL, fromURL } from "image-resize-compress"
-import { ArrowDown, ArrowUp, Box, DownloadCloud } from "lucide-react"
+import { ArrowDown, ArrowUp, Box, DownloadCloud, Settings } from "lucide-react"
 import { toast } from "sonner"
 
 import {
@@ -36,10 +36,10 @@ export const Editor = () => {
   const [showDialog, setShowDialog] = useState(false)
 
   const [imageData, setImageData] = useState<string | null>(null)
-  const [imageSize, setImageSize] = useState<string | null>(null)
+  const [imageSize, setImageSize] = useState<number | null>(null)
 
   const [resultData, setResultData] = useState<string | null>(null)
-  const [resultSize, setResultSize] = useState<string | null>(null)
+  const [resultSize, setResultSize] = useState<number | null>(null)
 
   async function getImageSize(url: string) {
     try {
@@ -56,7 +56,7 @@ export const Editor = () => {
       const url = URL.createObjectURL(file[0])
 
       setImageData(url)
-      setImageSize(filesize(file[0].size))
+      setImageSize(file[0].size)
       setResultData(null)
     }
   }
@@ -86,7 +86,7 @@ export const Editor = () => {
       // note only the blobFile argument is required
       const blob = await fromURL(imageData, quality, width, height, format)
       blobToURL(blob).then(async (url) => {
-        setResultSize(filesize(await getImageSize(url)))
+        setResultSize(await getImageSize(url))
         setResultData(url)
 
         toast.success(`🚀 Successful operation`)
@@ -146,7 +146,7 @@ export const Editor = () => {
 
               <div className="mt-4 flex items-center justify-center gap-2 text-sm">
                 <Box size={18}></Box>
-                <p>{imageSize}</p>
+                <p>{filesize(imageSize!)}</p>
               </div>
             </div>
           ) : (
@@ -178,7 +178,7 @@ export const Editor = () => {
                     resultSize! < imageSize! ? "text-green-400" : "text-red-400"
                   }`}
                 >
-                  {resultSize}
+                  {filesize(resultSize!)}
                 </p>
               </div>
             </div>
@@ -216,7 +216,9 @@ export const Editor = () => {
       </div>
 
       <Dialog>
-        <DialogTrigger>Open</DialogTrigger>
+        <DialogTrigger className="flex gap-2">
+          <Settings></Settings> <p>Settings</p>
+        </DialogTrigger>
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Are you absolutely sure?</DialogTitle>
