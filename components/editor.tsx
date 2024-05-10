@@ -1,6 +1,6 @@
 "use client"
 
-import { FormEvent, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 import Image from "next/image"
 import { sendGAEvent } from "@next/third-parties/google"
 import { filesize } from "filesize"
@@ -29,6 +29,15 @@ import {
   FileUploader,
   FileUploaderContent,
 } from "@/components/ui/file-uploader"
+import { Label } from "@/components/ui/label"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { Slider } from "@/components/ui/slider"
 import { Icons } from "@/components/icons"
 
 export const Editor = () => {
@@ -41,11 +50,27 @@ export const Editor = () => {
   const [resultData, setResultData] = useState<string | null>(null)
   const [resultSize, setResultSize] = useState<number | null>(null)
 
+  /* Settings */
+  const [quality, setQuality] = useState<number>(90)
+  const [format, setFormat] = useState<string>("auto")
+
   async function getImageSize(url: string) {
     try {
       const response = await fetch(url)
       const blob = await response.blob()
+
       return blob.size
+    } catch (error) {
+      throw new Error("Error getting image size")
+    }
+  }
+
+  async function getImageType(url: string) {
+    try {
+      const response = await fetch(url)
+      const blob = await response.blob()
+
+      return blob.type.replace("image/", "")
     } catch (error) {
       throw new Error("Error getting image size")
     }
@@ -64,24 +89,20 @@ export const Editor = () => {
   const handleDownload = () => {
     const link = document.createElement("a")
     link.href = resultData!
-    link.download = `optipic-${Date.now()}.webp`
+    link.download = `boostpic-${Date.now()}.${
+      format === "auto" ? getImageType(imageData!) : format
+    }`
     link.click()
   }
 
-  const optimize = async (ev: FormEvent) => {
-    ev.preventDefault()
-
+  const optimize = useCallback(async () => {
     if (imageData) {
       setShowDialog(true)
 
-      // quality value for webp and jpeg formats.
-      const quality = 80
       // output width. 0 will keep its original width and 'auto' will calculate its scale from height.
       const width = 0
       // output height. 0 will keep its original height and 'auto' will calculate its scale from width.
       const height = 0
-      // file format: png, jpeg, bmp, gif, webp. If null, original format will be used.
-      const format = "webp"
 
       // note only the blobFile argument is required
       const blob = await fromURL(imageData, quality, width, height, format)
@@ -96,7 +117,11 @@ export const Editor = () => {
         setShowDialog(false)
       })
     }
-  }
+  }, [format, imageData, quality])
+
+  useEffect(() => {
+    optimize()
+  }, [format, optimize, quality])
 
   return (
     <div className="flex flex-col gap-2">
@@ -132,14 +157,14 @@ export const Editor = () => {
       </div>
 
       {/* Images */}
-      <div className="flex size-full items-center justify-center gap-16 p-4">
+      <div className="flex size-full flex-col items-center justify-center gap-16 p-4 md:flex-row">
         <>
           {imageData ? (
             <div>
               <Image
                 width={300}
                 height={150}
-                className="flex max-h-80 max-w-80  rounded-xl"
+                className="flex max-h-80 max-w-80 rounded-xl"
                 src={imageData}
                 alt="Selected image"
               />
@@ -196,7 +221,7 @@ export const Editor = () => {
       <div className="flex items-center justify-center gap-2">
         <Button
           variant={"ringHover"}
-          className="font-bold"
+          className="hidden font-bold"
           onClick={optimize}
           disabled={!imageData}
         >
@@ -215,18 +240,54 @@ export const Editor = () => {
         </Button>
       </div>
 
+      {/* Processing Dialog */}
       <Dialog>
-        <DialogTrigger className="flex gap-2">
+        <DialogTrigger className="flex gap-2 self-center p-2 md:w-fit md:self-start">
           <Settings></Settings> <p>Settings</p>
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Are you absolutely sure?</DialogTitle>
-            <DialogDescription></DialogDescription>
+            <DialogTitle>Settings</DialogTitle>
+            <DialogDescription className="flex flex-col gap-2">
+              <Label className="mt-2">Quality</Label>
+
+              <div className="flex gap-2">
+                <Slider
+                  min={1}
+                  max={100}
+                  value={[quality]}
+                  onValueChange={(value) => setQuality(value[0])}
+                ></Slider>
+
+                <p>{quality}</p>
+              </div>
+
+              <Label>Format</Label>
+              <div className="flex flex-col gap-2">
+                <Select onValueChange={(ev) => setFormat(ev)}>
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Format" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="auto">auto</SelectItem>
+                    <SelectItem value="webp">webp</SelectItem>
+                    <SelectItem value="png">png</SelectItem>
+                    <SelectItem value="jpeg">jpeg</SelectItem>
+                    <SelectItem value="bmp">bmp</SelectItem>
+                    <SelectItem value="gif">gif</SelectItem>
+                  </SelectContent>
+                </Select>
+
+                <p className="mt-2 rounded bg-muted/80 p-4">
+                  Select format like <b>webp</b> has better compression
+                </p>
+              </div>
+            </DialogDescription>
           </DialogHeader>
         </DialogContent>
       </Dialog>
 
+      {/* Settings Dialog */}
       <AlertDialog open={showDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
