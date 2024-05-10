@@ -6,13 +6,15 @@ import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 
+import { MenuWithButton } from "./menu-button"
+
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full">
       <div className="container flex h-16 items-center space-x-4 p-4 backdrop-blur-2xl sm:justify-between sm:space-x-0 md:p-8">
         <MainNav items={siteConfig.mainNav} />
         <div className="flex flex-1 items-center justify-end space-x-4">
-          <nav className="flex items-center space-x-1">
+          <nav className="hidden items-center space-x-1 md:flex">
             <Link
               href={siteConfig.links.github}
               target="_blank"
@@ -60,6 +62,8 @@ export function SiteHeader() {
             </Link>
             <ThemeToggle />
           </nav>
+
+          <MenuWithButton items={siteConfig.mainNav}></MenuWithButton>
         </div>
       </div>
     </header>
