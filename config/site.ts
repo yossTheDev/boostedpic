@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "BoostPic: Fast Image Optimization Tool for Web and Social Media",
+  name: "BoostedPic: Fast Image Optimization Tool for Web and Social Media",
   description:
     "Reduce image sizes effortlessly for faster loading times and improved user experience!",
   mainNav: [

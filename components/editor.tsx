@@ -89,7 +89,7 @@ export const Editor = () => {
   const handleDownload = () => {
     const link = document.createElement("a")
     link.href = resultData!
-    link.download = `boostpic-${Date.now()}.${
+    link.download = `boostedpic-${Date.now()}.${
       format === "auto" ? getImageType(imageData!) : format
     }`
     link.click()
