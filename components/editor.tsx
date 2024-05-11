@@ -52,7 +52,7 @@ export const Editor = () => {
 
   /* Settings */
   const [quality, setQuality] = useState<number>(90)
-  const [format, setFormat] = useState<string>("auto")
+  const [format, setFormat] = useState<string>("webp")
 
   async function getImageSize(url: string) {
     try {
