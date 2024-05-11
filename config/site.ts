@@ -6,16 +6,14 @@ export const siteConfig = {
     "Reduce image sizes effortlessly for faster loading times and improved user experience!",
   mainNav: [
     {
-      title: "Home",
-      href: "/",
-    },
-    {
-      title: "Licenses",
-      href: "/",
+      title: "License",
+      href: "https://github.com/yossTheDev/boostedpic/blob/main/LICENSE",
+      external: true
     },
     {
       title: "Donation",
-      href: "/",
+      href: "https://qvapay.com/payme/yoannisgnw",
+      external: true
     },
     {
       title: "Send Feedback",
