@@ -10,6 +10,7 @@ import {
   ArrowUp,
   Box,
   DownloadCloud,
+  FileIcon,
   Info,
   Settings,
 } from "lucide-react"
@@ -53,9 +54,11 @@ export const Editor = () => {
 
   const [imageData, setImageData] = useState<string | null>(null)
   const [imageSize, setImageSize] = useState<number | null>(null)
+  const [imageType, setImageType] = useState<string | null>(null)
 
   const [resultData, setResultData] = useState<string | null>(null)
   const [resultSize, setResultSize] = useState<number | null>(null)
+  const [resultType, setResultType] = useState<string | null>(null)
 
   /* Settings */
   const [quality, setQuality] = useState<number>(90)
@@ -89,6 +92,7 @@ export const Editor = () => {
 
       setImageData(url)
       setImageSize(file[0].size)
+      setImageType(await getImageType(url))
       setResultData(null)
     }
   }
@@ -115,6 +119,7 @@ export const Editor = () => {
       const blob = await fromURL(imageData, quality, width, height, format)
       blobToURL(blob).then(async (url) => {
         setResultSize(await getImageSize(url))
+        setResultType(await getImageType(url))
         setResultData(url)
 
         toast.success(`🚀 Successful operation`)
@@ -178,8 +183,13 @@ export const Editor = () => {
               />
 
               <div className="mt-4 flex items-center justify-center gap-2 text-sm">
-                <Box size={18}></Box>
+                <Box size={14}></Box>
                 <p>{filesize(imageSize!)}</p>
+              </div>
+
+              <div className="mt-2 flex items-center justify-center gap-2 text-sm">
+                <FileIcon size={14}></FileIcon>
+                <p>{"image/" + imageType}</p>
               </div>
             </div>
           ) : (
@@ -200,7 +210,7 @@ export const Editor = () => {
                 alt="Selected image"
               />
 
-              <div className="mt-4 flex items-center justify-center gap-1 text-sm">
+              <div className="mt-4 flex items-center justify-center gap-1 text-sm font-bold">
                 {resultSize! < imageSize! ? (
                   <ArrowDown className="text-green-400"></ArrowDown>
                 ) : (
@@ -213,6 +223,11 @@ export const Editor = () => {
                 >
                   {filesize(resultSize!)}
                 </p>
+              </div>
+
+              <div className="mt-2 flex items-center justify-center gap-2 text-sm">
+                <FileIcon size={14}></FileIcon>
+                <p>{"image/" + resultType}</p>
               </div>
             </div>
           ) : (
