@@ -27,7 +27,6 @@ import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -177,7 +176,7 @@ export const Editor = () => {
               <Image
                 width={300}
                 height={150}
-                className="flex max-h-80 max-w-80 rounded-xl"
+                className="flex max-h-80 max-w-80 cursor-pointer rounded-xl ring-offset-8 ring-offset-background transition-all hover:ring-4 hover:ring-primary"
                 src={imageData}
                 alt="Selected image"
               />
@@ -205,7 +204,7 @@ export const Editor = () => {
               <Image
                 width={300}
                 height={150}
-                className="flex max-h-80 max-w-80 rounded-xl"
+                className="flex max-h-80 max-w-80 cursor-pointer rounded-xl ring-offset-8 ring-offset-background transition-all hover:ring-4 hover:ring-primary"
                 src={resultData}
                 alt="Selected image"
               />
