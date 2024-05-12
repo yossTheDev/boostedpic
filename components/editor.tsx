@@ -5,7 +5,14 @@ import Image from "next/image"
 import { sendGAEvent } from "@next/third-parties/google"
 import { filesize } from "filesize"
 import { blobToURL, fromURL } from "image-resize-compress"
-import { ArrowDown, ArrowUp, Box, DownloadCloud, Settings } from "lucide-react"
+import {
+  ArrowDown,
+  ArrowUp,
+  Box,
+  DownloadCloud,
+  Info,
+  Settings,
+} from "lucide-react"
 import { toast } from "sonner"
 
 import {
@@ -241,7 +248,7 @@ export const Editor = () => {
         </Button>
       </div>
 
-      {/* Processing Dialog */}
+      {/* Settings Dialog */}
       <Dialog>
         <DialogTrigger className="flex gap-2 self-center p-2 md:w-fit md:self-start">
           <Settings></Settings> <p>Settings</p>
@@ -250,24 +257,11 @@ export const Editor = () => {
           <DialogHeader>
             <DialogTitle>Settings</DialogTitle>
             <DialogDescription className="flex flex-col gap-2">
-              <Label className="mt-2">Quality</Label>
-
-              <div className="flex gap-2">
-                <Slider
-                  min={1}
-                  max={100}
-                  value={[quality]}
-                  onValueChange={(value) => setQuality(value[0])}
-                ></Slider>
-
-                <p>{quality}</p>
-              </div>
-
-              <Label>Format</Label>
+              <Label className="mt-2">Format</Label>
               <div className="flex flex-col gap-2">
                 <Select onValueChange={(ev) => setFormat(ev)}>
-                  <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Format" />
+                  <SelectTrigger className="">
+                    <SelectValue placeholder="Select Export Format" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="auto">auto</SelectItem>
@@ -279,16 +273,37 @@ export const Editor = () => {
                   </SelectContent>
                 </Select>
 
-                <p className="mt-2 rounded bg-muted/80 p-4">
-                  Select format like <b>webp</b> has better compression
-                </p>
+                <div className="mt-2 flex items-center gap-2 rounded bg-muted/80 p-4">
+                  <Info></Info>
+                  <p className="">
+                    Some formats such as <b>webp</b> and <b>jpeg</b> have better
+                    compression and allow you to adjust the output quality.
+                  </p>
+                </div>
               </div>
+
+              {(format === "webp" || format === "jpeg") && (
+                <>
+                  {" "}
+                  <Label className="mt-2">Quality</Label>
+                  <div className="flex gap-2">
+                    <Slider
+                      min={1}
+                      max={100}
+                      value={[quality]}
+                      onValueChange={(value) => setQuality(value[0])}
+                    ></Slider>
+
+                    <p>{quality}</p>
+                  </div>
+                </>
+              )}
             </DialogDescription>
           </DialogHeader>
         </DialogContent>
       </Dialog>
 
-      {/* Settings Dialog */}
+      {/* Processing Dialog */}
       <AlertDialog open={showDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
