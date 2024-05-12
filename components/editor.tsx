@@ -256,50 +256,50 @@ export const Editor = () => {
         <DialogContent>
           <DialogHeader>
             <DialogTitle>Settings</DialogTitle>
-            <DialogDescription className="flex flex-col gap-2">
-              <Label className="mt-2">Format</Label>
-              <div className="flex flex-col gap-2">
-                <Select onValueChange={(ev) => setFormat(ev)}>
-                  <SelectTrigger className="">
-                    <SelectValue placeholder="Select Export Format" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="auto">auto</SelectItem>
-                    <SelectItem value="webp">webp</SelectItem>
-                    <SelectItem value="png">png</SelectItem>
-                    <SelectItem value="jpeg">jpeg</SelectItem>
-                    <SelectItem value="bmp">bmp</SelectItem>
-                    <SelectItem value="gif">gif</SelectItem>
-                  </SelectContent>
-                </Select>
-
-                <div className="mt-2 flex items-center gap-2 rounded bg-muted/80 p-4">
-                  <Info></Info>
-                  <p className="">
-                    Some formats such as <b>webp</b> and <b>jpeg</b> have better
-                    compression and allow you to adjust the output quality.
-                  </p>
-                </div>
-              </div>
-
-              {(format === "webp" || format === "jpeg") && (
-                <>
-                  {" "}
-                  <Label className="mt-2">Quality</Label>
-                  <div className="flex gap-2">
-                    <Slider
-                      min={1}
-                      max={100}
-                      value={[quality]}
-                      onValueChange={(value) => setQuality(value[0])}
-                    ></Slider>
-
-                    <p>{quality}</p>
-                  </div>
-                </>
-              )}
-            </DialogDescription>
           </DialogHeader>
+
+          {/* Format */}
+          <Label className="mt-2">Format</Label>
+          <div className="flex flex-col gap-2">
+            <Select onValueChange={(ev) => setFormat(ev)}>
+              <SelectTrigger className="">
+                <SelectValue placeholder="Select Export Format" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="auto">auto</SelectItem>
+                <SelectItem value="webp">webp</SelectItem>
+                <SelectItem value="png">png</SelectItem>
+                <SelectItem value="jpeg">jpeg</SelectItem>
+                <SelectItem value="bmp">bmp</SelectItem>
+                <SelectItem value="gif">gif</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <div className="mt-2 flex items-center gap-2 rounded bg-muted/90 p-4 text-neutral-600 dark:text-neutral-400">
+              <Info className="flex size-4 shrink-0"></Info>
+              <p className="text-sm">
+                Some formats such as <b>webp</b> and <b>jpeg</b> have better
+                compression and allow you to adjust the output quality.
+              </p>
+            </div>
+          </div>
+
+          {/* Quality */}
+          {(format === "webp" || format === "jpeg") && (
+            <>
+              <Label className="mt-2">Quality</Label>
+              <div className="flex gap-2">
+                <Slider
+                  min={1}
+                  max={100}
+                  value={[quality]}
+                  onValueChange={(value) => setQuality(value[0])}
+                ></Slider>
+
+                <p>{quality}</p>
+              </div>
+            </>
+          )}
         </DialogContent>
       </Dialog>
 

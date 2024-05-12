@@ -68,7 +68,7 @@ export const MenuWithButton: React.FC<MainButtonProps> = ({ items }) => {
                   )
               )}
 
-              <Separator></Separator>
+              <Separator className="mb-60 mt-20"></Separator>
 
               <Link
                 href={siteConfig.links.github}
