@@ -13,7 +13,10 @@ interface MainNavProps {
 export function MainNav({ items }: MainNavProps) {
   return (
     <div className="flex gap-6 md:gap-10">
-      <Link href="/" className="flex items-center space-x-2">
+      <Link
+        href="/"
+        className="flex items-center space-x-2  hover:animate-tada"
+      >
         <Icons.logo className="size-8" />
         <span className="inline-block text-2xl font-bold">BoostedPic</span>
       </Link>
