@@ -266,8 +266,13 @@ export const Editor = () => {
 
       {/* Settings Dialog */}
       <Dialog>
-        <DialogTrigger className="flex gap-2 self-center p-2 md:w-fit md:self-start">
-          <Settings></Settings> <p>Settings</p>
+        <DialogTrigger
+          asChild
+          className="flex gap-2 self-center p-2 md:w-fit md:self-start"
+        >
+          <Button variant={"ghost"}>
+            <Settings></Settings> <p>Settings</p>
+          </Button>
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
