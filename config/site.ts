@@ -17,7 +17,7 @@ export const siteConfig = {
     },
     {
       title: "Send Feedback",
-      href: "https://tally.so/r/nrlKdM",
+      href: "https://tally.so/r/mVZa8E",
       external: true,
     },
   ],
