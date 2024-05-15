@@ -42,7 +42,7 @@ export const MenuWithButton: React.FC<MainButtonProps> = ({ items }) => {
             size="sm"
             className="mr-2 h-8 px-1.5 md:hidden"
           >
-            <Menu className="size-5" />
+            <Icons.MajesticonsMenuAlt className="size-5" />
             <span className="sr-only">Toggle Menu</span>
           </Button>
         </SheetTrigger>
