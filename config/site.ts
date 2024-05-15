@@ -25,6 +25,6 @@ export const siteConfig = {
     twitter: "https://twitter.com/yossthedev",
     github: "https://github.com/yossTheDev/removerized",
     telegram: "https://t.me/yosstdv",
-    reddit: "https://reddid.com/u/yossthedev"
+    reddit: "https://reddit.com/u/yossthedev"
   },
 }

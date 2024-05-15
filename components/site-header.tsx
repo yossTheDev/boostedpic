@@ -62,7 +62,7 @@ export function SiteHeader() {
             </Link>
 
             <Link
-              href={siteConfig.links.telegram}
+              href={siteConfig.links.reddit}
               target="_blank"
               rel="noreferrer"
             >

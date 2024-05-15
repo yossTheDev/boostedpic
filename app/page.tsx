@@ -31,7 +31,7 @@ export default async function IndexPage() {
               For Web and Social Media
             </span>
             <span className="inline-block">
-              <Icons.SolarStarsBoldDuotone className="flex group-hover:animate-tada"></Icons.SolarStarsBoldDuotone>
+              <Icons.BxsZap className="flex text-muted-foreground group-hover:animate-tada"></Icons.BxsZap>
             </span>
           </h1>
         </div>
