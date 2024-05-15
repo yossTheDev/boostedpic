@@ -6,12 +6,12 @@ import { Icons } from "@/components/icons"
 
 export default async function IndexPage() {
   return (
-    <section className="container flex h-full flex-col gap-2 pb-8">
+    <section className="container flex h-full flex-col items-center gap-16 pb-8 md:flex-row">
       {/* Hero */}
-      <div className="group hidden flex-col items-center justify-center">
-        <div className="mt-14 flex flex-col items-center justify-center md:mt-0 md:w-96">
+      <div className="group top-0 mt-16 flex flex-col items-center justify-center rounded-2xl bg-muted-foreground/10 px-4 py-6 md:sticky md:mt-0">
+        <div className="flex flex-col items-center justify-center md:mt-0 md:w-96">
           <a
-            className="mb-4 w-fit p-0 md:self-start"
+            className="mb-4 hidden w-fit p-0"
             href="https://www.producthunt.com/posts/removerized?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-removerized"
             target="_blank"
           >
@@ -24,10 +24,12 @@ export default async function IndexPage() {
             />
           </a>
 
-          <h1 className="animate-fade-in-up text-center text-4xl font-bold md:text-start md:text-6xl lg:text-7xl">
-            <span>Free Background Remover Tool with</span>
+          <h1 className="w-80 animate-fade-in-up text-center text-4xl font-bold md:text-start md:text-3xl lg:text-4xl">
+            <span>Fast Image Optimization Tool </span>
             <br></br>
-            <span>AI</span>
+            <span className="text-muted-foreground">
+              For Web and Social Media
+            </span>
             <span className="inline-block">
               <Icons.SolarStarsBoldDuotone className="flex group-hover:animate-tada"></Icons.SolarStarsBoldDuotone>
             </span>

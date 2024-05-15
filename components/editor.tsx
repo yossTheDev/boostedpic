@@ -181,12 +181,12 @@ export const Editor = () => {
                 alt="Selected image"
               />
 
-              <div className="mt-4 flex items-center justify-center gap-2 text-sm">
+              <div className="mt-4 flex items-center justify-center gap-2 text-sm text-muted-foreground md:justify-start">
                 <Box size={14}></Box>
                 <p>{filesize(imageSize!)}</p>
               </div>
 
-              <div className="mt-2 flex items-center justify-center gap-2 text-sm">
+              <div className="mt-2 flex items-center justify-center gap-2 text-sm text-muted-foreground md:justify-start">
                 <FileIcon size={14}></FileIcon>
                 <p>{"image/" + imageType}</p>
               </div>
@@ -209,7 +209,7 @@ export const Editor = () => {
                 alt="Selected image"
               />
 
-              <div className="mt-4 flex items-center justify-center gap-1 text-sm font-bold">
+              <div className="mt-4 flex items-center justify-center gap-1 text-sm font-bold md:justify-start">
                 {resultSize! < imageSize! ? (
                   <ArrowDown className="text-green-400"></ArrowDown>
                 ) : (
@@ -217,14 +217,16 @@ export const Editor = () => {
                 )}
                 <p
                   className={`${
-                    resultSize! < imageSize! ? "text-green-400" : "text-red-400"
+                    resultSize! < imageSize!
+                      ? "text-lg text-green-400"
+                      : "text-red-400"
                   }`}
                 >
                   {filesize(resultSize!)}
                 </p>
               </div>
 
-              <div className="mt-2 flex items-center justify-center gap-2 text-sm">
+              <div className="mt-2 flex items-center justify-center gap-2 text-sm text-muted-foreground md:justify-start">
                 <FileIcon size={14}></FileIcon>
                 <p>{"image/" + resultType}</p>
               </div>
