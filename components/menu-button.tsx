@@ -102,6 +102,17 @@ export const MenuWithButton: React.FC<MainButtonProps> = ({ items }) => {
                 <Icons.Telegram className="size-4 fill-muted-foreground" />
                 Telegram
               </Link>
+
+              <Link
+                href={siteConfig.links.reddit}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 text-muted-foreground"
+                role="menuitem"
+              >
+                <Icons.Reddit className="size-4 fill-muted-foreground" />
+                Reddit
+              </Link>
             </div>
           </ScrollArea>
 

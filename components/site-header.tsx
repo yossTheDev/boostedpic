@@ -60,6 +60,22 @@ export function SiteHeader() {
                 <span className="sr-only">Telegram</span>
               </div>
             </Link>
+
+            <Link
+              href={siteConfig.links.telegram}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <div
+                className={buttonVariants({
+                  size: "icon",
+                  variant: "ghost",
+                })}
+              >
+                <Icons.Reddit className="size-5 fill-current" />
+                <span className="sr-only">Reddit</span>
+              </div>
+            </Link>
             <ThemeToggle />
           </nav>
 
