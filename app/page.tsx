@@ -6,9 +6,9 @@ import { Icons } from "@/components/icons"
 
 export default async function IndexPage() {
   return (
-    <section className="container flex h-full flex-col items-center gap-16 pb-8 md:flex-row">
+    <section className="container flex h-full flex-col items-center gap-16  pb-8 md:flex-row">
       {/* Hero */}
-      <div className="group top-0 mt-16 flex flex-col items-center justify-center rounded-2xl bg-muted-foreground/10 px-4 py-6 md:sticky md:mt-0">
+      <div className="group top-0 mt-16 flex flex-col items-center justify-center rounded-2xl bg-muted-foreground/10 px-1 py-6 md:sticky md:mt-0 md:px-4">
         <div className="flex flex-col items-center justify-center md:mt-0 md:w-96">
           <a
             className="mb-4 hidden w-fit p-0"
