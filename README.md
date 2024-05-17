@@ -1,7 +1,7 @@
-<h1 align="center">✨ BoostedPic - Free AI Background Remover Tool</h1>
+<h1 align="center">🚀✨ BoostedPic - Fast Image Optimization Tool for Web and Social Media</h1>
 
 <p align="center">
-🖼️ Effortlessly Remove Image Backgrounds with AI - 🆓 Free & Limitless with 🛩️ Offline Support
+📷 Shrink photos instantly without quality loss. Multiple export formats. 🔓 Open source, private. 💻📱 Cross-platform PWA. ⚡ Fast, lightweight image compression app.
 </p>
 
 <p align="center">
@@ -19,27 +19,30 @@
 
 ## ✨ Features
 
-* 🌟 Effortlessly Remove Image Backgrounds with AI! 🤖
-* 💡 Free & Limitless: No hidden costs or usage limits!
-* 🔌 Offline Support: No internet connection needed!
-* 🚀 Fast & Accurate: AI-powered technology for quick and precise background removal.
-* 🛠️ Easy-to-Use: User-friendly interface for a seamless experience.
-* 🌈 Versatile: Perfect for any image, any occasion!
+* 🔑 Powerful Image Compression: Reduce the file size of your images significantly without compromising quality.
+* 📦 Multiple Export Formats: Export your compressed images in popular formats like JPEG, PNG, WebP, and more.
+* 💻 Offline Functionality: No internet connection required! Compress images locally on your device.
+* 🔓 Open Source: Our app is open source, allowing full transparency and community contributions.
+* 🔒 Privacy Friendly: Your images never leave your device - we don't send any data to external servers.
+* 🎨 Intuitive Interface: Simple and user-friendly design for a seamless compression experience.
+* 🌐 Cross-Platform: Thanks to its Progressive Web App (PWA) nature, our app runs seamlessly across all platforms and devices with a modern web browser.
+* ⚙️ Customizable Settings: Adjust compression levels, output quality, and more to suit your needs.
+* ⚡ Fast and Lightweight: Optimized for speed and low resource usage on any device.
 
 ## ⚖️ License
 
 ![GPLv3](https://www.gnu.org/graphics/gplv3-with-text-136x68.png)
 
 ```monospace
-Removerized is free software: you can redistribute it and/or modify
+boostedpic is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, version 3 of the License
 
-Removerized is distributed in the hope that it will be useful,
+boostedpic is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with Removerized. If not, see <https://www.gnu.org/licenses/>.
+along with boostedpic. If not, see <https://www.gnu.org/licenses/>.
 ```

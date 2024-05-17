@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: "https://boosted.pages.dev/og.png",
+        url: "https://boostedpic.pages.dev/og.png",
       },
     ],
   },
