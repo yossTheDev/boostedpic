@@ -1,11 +1,11 @@
-<h1 align="center">✨ Removerized - Free AI Background Remover Tool</h1>
+<h1 align="center">✨ BoostedPic - Free AI Background Remover Tool</h1>
 
 <p align="center">
 🖼️ Effortlessly Remove Image Backgrounds with AI - 🆓 Free & Limitless with 🛩️ Offline Support
 </p>
 
 <p align="center">
-<a href="https://removerized.pages.dev/" target="_blank">removerized.pages.dev</a>
+<a href="https://boostedpic.pages.dev/" target="_blank">boostedpic.pages.dev</a>
 </p>
 
 ![blog](docs/banner.png)
