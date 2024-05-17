@@ -1,13 +1,13 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "Removerized - Free AI Background Remover Tool",
-  "short_name": "Removerized",
-  "description": "Effortlessly Remove Image Backgrounds with AI - Free & Limitless with Offline Support",
+  "name": "BoostedPic: Fast Image Optimization Tool for Web and Social Media",
+  "short_name": "BoostedPic",
+  "description": "Reduce image sizes effortlessly for faster loading times and improved user experience!",
   "icons": [
     {
       "src": "icons/logo.png",
       "sizes": "512x512",
-      "type": "image/svg",
+      "type": "image/png",
       "purpose": "any"
     },
     {
