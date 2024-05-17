@@ -27,13 +27,7 @@ export const metadata: Metadata = {
     // startUpImage: [],
   },
   manifest: "/manifest.json",
-  openGraph: {
-    images: [
-      {
-        url: "https://removerized.pages.dev/og.png",
-      },
-    ],
-  },
+
   icons: {
     icon: "/favicon.svg",
   },
