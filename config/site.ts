@@ -23,7 +23,7 @@ export const siteConfig = {
   ],
   links: {
     twitter: "https://twitter.com/yossthedev",
-    github: "https://github.com/yossTheDev/removerized",
+    github: "https://github.com/yossTheDev/boostedpic",
     telegram: "https://t.me/yosstdv",
     reddit: "https://reddit.com/u/yossthedev"
   },
